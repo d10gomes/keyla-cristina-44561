@@ -523,13 +523,6 @@ export const territorioFrases = [
   "Levar as demandas adiante",
 ];
 
-export const sloganFeature = {
-  kicker: "CHAPADA — BAHIA",
-  frase: "Um coração da Chapada para cuidar da Bahia.",
-  fraseAccent: "Chapada",
-  alt: "Keyla em evento no interior da Bahia",
-};
-
 export const rodapeLegal = {
   nomeCivil: candidato.nomeCompleto,
   disclaimer: `Propaganda eleitoral. ${candidato.nomeCompleto.toUpperCase()} ${candidato.numero} — Candidata a ${candidato.cargo} — ${candidato.partido} (${candidato.partidoSigla}).`,
