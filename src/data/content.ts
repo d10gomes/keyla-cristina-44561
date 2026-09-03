@@ -30,7 +30,7 @@ export const contato = {
   email: "contato@keylacristina.com.br",
   cnpjResponsavel: "68.319.522/0001-94",
   instagram: "https://www.instagram.com/keyla.baofc/",
-  facebook: "#",
+  facebook: "https://www.facebook.com/share/1bBexKN4fD/?mibextid=wwXIfr",
 };
 
 export const cores = {

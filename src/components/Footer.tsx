@@ -11,6 +11,14 @@ function InstagramIcon() {
   );
 }
 
+function FacebookIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h2.5l.5-4H13V7a1 1 0 0 1 1-1h2z" />
+    </svg>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="bg-brand-ink text-white/70 pb-8 sm:pb-10 text-sm">
@@ -35,6 +43,15 @@ export default function Footer() {
             className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-blue-700 hover:text-white transition"
           >
             <InstagramIcon />
+          </a>
+          <a
+            href={contato.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-blue-700 hover:text-white transition"
+          >
+            <FacebookIcon />
           </a>
           <a
             href={`https://wa.me/${contato.whatsapp}`}
