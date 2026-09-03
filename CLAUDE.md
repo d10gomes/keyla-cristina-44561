@@ -1,5 +1,16 @@
 # Landing Page — Keyla Cristina 44561
 
+## Deploy
+
+- Repositório: https://github.com/d10gomes/keyla-cristina-44561 (público, sem segredos —
+  não há `.env` neste projeto)
+- Projeto Vercel: `perfile/keyla-cristina-44561`, deploy automático a cada `git push` na
+  branch `master` (a integração Vercel↔GitHub App precisou ter o repo liberado manualmente
+  em github.com/settings/installations → Vercel → Configure, já feito em 03/09/2026)
+- Domínio ainda é o gerado pelo Vercel (`*.vercel.app`) — apontar `keylacristina.com.br`
+  para o projeto Vercel quando a equipe decidir migrar (Vercel → Project → Settings →
+  Domains)
+
 ## O que é
 
 Landing page de campanha para **Keyla Cristina**, candidata a **Deputada Estadual pela
