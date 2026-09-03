@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* Ativa o utilitário dark: do Tailwind quando a página está em .modo-escuro,
+   controlado pela barra de acessibilidade (não segue o tema do sistema). */
+@custom-variant dark (&:where(.modo-escuro, .modo-escuro *));
+
+@theme {
+  --color-brand-blue-900: #7a1550;
+  --color-brand-blue-700: #c12974;
+  --color-brand-green-700: #5c7a2e;
+  --color-brand-green-500: #83af47;
+  --color-brand-yellow-500: #f2b705;
+  --color-brand-ink: #2b1420;
+  --color-brand-bg: #fdf6fa;
+}
+
+:root {
+  --ink: #2b1420;
+  --bg: #fdf6fa;
+  --blue-dark: #7a1550;
+  --blue: #c12974;
+  --green-dark: #5c7a2e;
+  --green: #83af47;
+  --yellow: #f2b705;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  font-size: calc(16px * var(--escala-fonte, 1));
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Alto contraste: reforça a diferença entre cores em toda a página — pedido de
+   acessibilidade, não é um tema visual, então usa filtro em vez de recolorir
+   cada componente manualmente. */
+html.alto-contraste {
+  filter: contrast(1.55) saturate(1.35);
+}
+html.alto-contraste img {
+  filter: contrast(0.85);
+}
+
+/* Modo escuro: troca o fundo/texto padrão do body; as seções que já têm cor
+   própria (Hero, Header, faixas rosa/verdes) não precisam de ajuste, só as
+   seções de fundo claro usam dark: para virar escuras (ver cada componente). */
+.modo-escuro {
+  color-scheme: dark;
+}
+.modo-escuro body {
+  background: var(--ink);
+  color: #f9f0f5;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: "Archivo", system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--yellow);
+  color: var(--blue-dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes sheetUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes introTexto {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes introBarra {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

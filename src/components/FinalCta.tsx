@@ -1,0 +1,20 @@
+import { candidato } from "../data/content";
+
+export default function FinalCta() {
+  return (
+    <section className="bg-white dark:bg-brand-ink py-12 sm:py-16 md:py-20 text-center">
+      <div className="max-w-2xl mx-auto px-4 sm:px-5">
+        <p className="text-[#2b1420]/60 dark:text-white/60 mb-2 uppercase tracking-widest text-xs sm:text-sm font-semibold">
+          No dia da eleição, vote
+        </p>
+        <div className="font-display font-extrabold text-5xl sm:text-6xl md:text-8xl bg-gradient-to-r from-[#7a1550] via-[#c12974] to-[#5c7a2e] dark:from-white dark:via-brand-yellow-500 dark:to-brand-green-500 bg-clip-text text-transparent mb-3">
+          {candidato.numero}
+        </div>
+        <p className="font-display font-bold text-base sm:text-xl text-[#7a1550] dark:text-white">
+          {candidato.nome} · {candidato.cargo}
+        </p>
+        <p className="text-sm sm:text-base text-[#2b1420]/50 dark:text-white/50">{candidato.slogan}</p>
+      </div>
+    </section>
+  );
+}
