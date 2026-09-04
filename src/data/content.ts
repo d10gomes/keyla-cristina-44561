@@ -9,7 +9,7 @@ export const candidato = {
   partido: "União Brasil",
   partidoSigla: "UNIÃO",
   slogan: "Um coração da Chapada, pra cuidar da Bahia.",
-  bandeira: "Fé, Família e Cuidado",
+  bandeira: "Serviço, Família e Cuidado",
   cidadeBase: "Iraquara",
 };
 
@@ -63,10 +63,10 @@ export const cidadesRegiao = [
 
 export const valores = [
   {
-    icone: "dove",
-    titulo: "Fé cristã",
+    icone: "heart",
+    titulo: "Vocação de servir",
     texto:
-      "Uma trajetória que começou na igreja, como catequista e sempre presente nos grupos de jovens. Fé que se transforma em serviço ao próximo.",
+      "Desde cedo, a vontade de aprender mais e servir ao próximo moldou sua trajetória, da sala de aula ao empreendedorismo.",
   },
   {
     icone: "handshake",
@@ -109,15 +109,27 @@ export type Marco = {
 export const trajetoria: Marco[] = [
   {
     ano: "Desde criança",
-    titulo: "Uma vida dentro da igreja",
+    titulo: "Movida pelo desejo de servir",
     texto:
-      "Catequista e sempre presente em grupos de jovens, Keyla aprendeu cedo que fé e serviço andam juntos.",
+      "Desde cedo, a vontade de aprender mais e servir ao próximo já definia o jeito de Keyla ver o mundo.",
+  },
+  {
+    ano: "Formação",
+    titulo: "Letras Vernáculas, Serviço Social e Turismo",
+    texto:
+      "Formou-se em Letras Vernáculas e Serviço Social, com pós-graduação em Turismo, antes de virar professora.",
   },
   {
     ano: "Sala de aula",
     titulo: "Professora",
     texto:
       "Antes da política, já vivia a rotina de formar gente de perto, todos os dias.",
+  },
+  {
+    ano: "Empreendedorismo",
+    titulo: "Centro Médico Iraquara e o Chapada Saúde+",
+    texto:
+      "Tornou-se empresária à frente do Centro Médico Iraquara e criou o Chapada Saúde+, um plano de descontos para ampliar o acesso à saúde na região.",
   },
   {
     ano: "Vereadora",
@@ -419,16 +431,16 @@ export const bio = {
   fraseAbertura:
     "Você conhece uma mulher que nunca deixou de servir a própria terra?",
   aberturaTexto:
-    "Keyla conhece, porque é ela mesma. Mãe, esposa e mulher de fé, desde menina em Iraquara, na Chapada Diamantina, sua vida sempre esteve ligada à igreja, à sala de aula e ao trabalho social. Antes de qualquer cargo, já era assim: perto das pessoas, resolvendo o que dava para resolver.",
-  memoriaTitulo: "Uma menina da igreja de Iraquara que nunca deixou de servir.",
+    "Keyla conhece, porque é ela mesma. Mãe, esposa e movida pelo desejo de servir ao próximo desde menina em Iraquara, na Chapada Diamantina, sua vida sempre esteve ligada à sala de aula, ao empreendedorismo e ao trabalho social. Antes de qualquer cargo, já era assim: perto das pessoas, resolvendo o que dava para resolver.",
+  memoriaTitulo: "Uma menina de Iraquara que nunca deixou de servir.",
   memoriaTexto:
-    "Antes da política, Keyla já estava lá: nos grupos de jovens, na catequese, nas salas de aula como professora. Cresceu vendo a fé e o serviço como a mesma coisa, e foi assim, servindo de perto, que aprendeu o que a sua gente mais precisa.",
+    "Antes da política, Keyla já estava lá: na sala de aula como professora, no comércio como empreendedora, perto de quem precisava. Cresceu vendo o cuidado com o próximo como parte da rotina, e foi assim, servindo de perto, que aprendeu o que a sua gente mais precisa.",
   memoriaDestaque: "Porque amor por uma terra se mostra em quem nunca foi embora.",
   quemE: [
-    "Mãe, esposa e mulher de fé, formada em Assistência Social. Para Keyla, cuidar das pessoas sempre foi mais que uma profissão: foi propósito.",
+    "Mãe e esposa, formada em Letras Vernáculas e Serviço Social, com pós-graduação em Turismo. Para Keyla, cuidar das pessoas sempre foi mais que uma profissão: foi propósito.",
     "Nasceu e cresceu em Iraquara, na Chapada Diamantina, e foi lá que construiu sua história antes mesmo de pensar em política.",
-    "Desde cedo esteve envolvida na igreja: catequista, integrante de grupos de jovens, sempre próxima da comunidade.",
-    "Formou-se professora, empreendeu e esteve à frente de um centro médico em Iraquara, sempre gerando oportunidade para quem estava por perto.",
+    "Desde cedo teve vocação para empreender e criar oportunidades que beneficiassem a comunidade ao seu redor.",
+    "Formou-se professora, empreendeu e tornou-se empresária à frente do Centro Médico Iraquara, onde criou o Chapada Saúde+, um plano de descontos para ampliar o acesso à saúde na região.",
     "Foi eleita vereadora sendo, à época, a mais jovem vereadora da Bahia. Foi ali que aprendeu que política se faz com presença, escuta e compromisso.",
     "Como presidente da Câmara de Iraquara, conduziu a gestão que tornou a Casa Legislativa independente.",
     "Foi secretária de Ação Social, levando projetos de empreendedorismo feminino e apoio a famílias carentes.",
@@ -457,7 +469,7 @@ export const quemCards: QuemCard[] = [
     tag: "Apresentação",
     titulo: "Essa sou eu, Keyla",
     texto:
-      "Mãe, esposa e mulher de fé. Formada em Assistência Social, empreendedora e geradora de oportunidades: cuidar das pessoas sempre foi mais que uma profissão, sempre foi propósito.",
+      "Mãe e esposa, formada em Letras Vernáculas e Serviço Social, com pós-graduação em Turismo. Empreendedora e geradora de oportunidades: cuidar das pessoas sempre foi mais que uma profissão, sempre foi propósito.",
     alt: "Keyla em família, celebrando o Natal",
   },
   {

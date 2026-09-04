@@ -11,7 +11,7 @@ export default function Trajetoria() {
           <span className="rounded-full bg-white/10 px-3.5 sm:px-4 py-1.5">Uma trajetória, não uma promessa</span>
         </p>
         <h2 className="font-display font-extrabold text-xl sm:text-3xl md:text-4xl text-center mb-8 sm:mb-12 leading-tight">
-          De catequista a presidente da Câmara.
+          De professora a presidente da Câmara.
           <br />
           Sempre do lado de quem precisa.
         </h2>

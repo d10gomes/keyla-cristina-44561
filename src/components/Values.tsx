@@ -1,6 +1,6 @@
 import {
   Handshake,
-  Bird,
+  Heart,
   Sprout,
   Users,
   GraduationCap,
@@ -11,7 +11,7 @@ import { valores, candidato } from "../data/content";
 
 const ICONS: Record<string, LucideIcon> = {
   handshake: Handshake,
-  dove: Bird,
+  heart: Heart,
   sprout: Sprout,
   family: Users,
   cap: GraduationCap,
@@ -37,7 +37,7 @@ export default function Values() {
           </span>
         </p>
         <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl text-center mb-3 sm:mb-4 leading-tight text-[#7a1550] dark:text-white">
-          Fé, cuidado e trabalho social.
+          Serviço, cuidado e trabalho social.
         </h2>
         <p className="text-center text-sm sm:text-base text-[#2b1420]/70 dark:text-white/70 max-w-2xl mx-auto mb-8 sm:mb-12">
           Os valores que orientam cada proposta de{" "}

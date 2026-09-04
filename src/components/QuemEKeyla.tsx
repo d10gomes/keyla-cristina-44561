@@ -22,7 +22,7 @@ export default function QuemEKeyla() {
             A pessoa por trás da candidata
           </h2>
           <p className="text-sm sm:text-base text-[#2b1420]/70 dark:text-white/70 max-w-xl mx-auto">
-            Mãe, esposa, mulher de fé e uma vida inteira ligada à Chapada Diamantina.
+            Mãe, esposa e uma vida inteira dedicada a servir a Chapada Diamantina.
           </p>
         </div>
       </div>
