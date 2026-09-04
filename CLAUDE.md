@@ -213,14 +213,13 @@ componentes.
 - **Autorização de imagem** de terceiros identificáveis nas fotos da seção "Território"
   (moradores/apoiadores) — confirmar com a campanha, mesmo padrão de cuidado do
   `pablicio-medeiros`.
-- **Arquivo de música de fundo**: `src/components/BackgroundMusic.tsx` já está pronto e
-  ligado no `App.tsx`, mas falta o arquivo em si — colocar em `public/musica-fundo.mp3`
-  (nome exato, ou ajustar `AUDIO_SRC` no componente). Detalhes de como funciona (bloqueio
-  de autoplay dos navegadores, pausa automática quando o `<video>` da página toca, botão
-  de mudo obrigatório por acessibilidade) estão comentados no topo do arquivo. **Cuidado
-  com direitos autorais**: só usar uma faixa que a campanha tenha licença pra usar
-  (composição própria, música royalty-free ou trilha licenciada) — isso é responsabilidade
-  de quem fornece o arquivo, não foi verificado aqui.
+- ✅ **Música de fundo**: `public/musica-fundo.mp3` (jingle da campanha, 42s, enviado pelo
+  responsável em 04/09/2026) já está no ar. `src/components/BackgroundMusic.tsx` toca no
+  primeiro toque/clique/rolagem do visitante (bloqueio de autoplay dos navegadores não dá
+  pra contornar de outro jeito), pausa sozinha quando o `<video>` da página é reproduzido e
+  volta de onde parou quando ele é pausado ou termina — testado e confirmado funcionando.
+  Botão de mudo sempre visível (exigência de acessibilidade, WCAG 1.4.2). Pra trocar a
+  música, é só substituir esse arquivo mantendo o mesmo nome.
 
 ## Já feito (não precisa repetir)
 
