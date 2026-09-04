@@ -84,22 +84,50 @@ embutidas em base64. Esse material foi extraído e incorporado:
   HTML aparece só como uma cor de apoio pontual (usada em `Plan.tsx` para o ícone de
   Infraestrutura/Educação), não como cor estrutural da página.
 
-## Sem backend de leads (por decisão do responsável, 03/09/2026)
+## Backend de leads (Supabase) — ativado em 04/09/2026
 
-Diferente do Pablício (que tem um projeto Supabase dedicado para salvar os leads), aqui o
-formulário **não salva nada em banco de dados** — só monta a mensagem e abre o WhatsApp da
-campanha (`LeadForm.tsx > handleSubmit`). Por isso não há `SupportersCounter`,
-`useLeadsCount`, `src/lib/supabase.ts` nem variáveis de ambiente `VITE_SUPABASE_*` neste
-projeto. Se a campanha quiser ativar isso depois, seguir o mesmo passo a passo documentado
-no `CLAUDE.md` do `pablicio-medeiros` (criar projeto Supabase, tabela `leads` com RLS,
-função `get_leads_count()`).
+O formulário "Quero fazer parte" salva no banco **e** abre o WhatsApp da campanha com a
+mensagem pronta (as duas coisas acontecem, igual ao padrão do `pablicio-medeiros`).
+
+**Importante: não é um projeto Supabase próprio.** A conta do responsável (`d10gomes`) já
+estava no limite de **2 projetos Supabase gratuitos ativos** simultâneos, e o único projeto
+"livre" para pausar (`d10-meta-ai`) estava travado em estado de hibernação pelo lado do
+próprio Supabase (erro "Cannot pause project while it is currently hibernating. Please
+reach out to support" — não é algo resolvível por API, precisaria de chamado ao suporte).
+
+Por isso, os dados da Keyla ficam numa **tabela separada dentro do mesmo projeto do
+Pablício** (`pablicio-medeiros-leads`, `rhnoakehzvbdebhskngh`, região sa-east-1):
+
+- Tabela `leads_keyla` (mesma estrutura da `leads` do Pablício: `id, created_at, nome,
+  whatsapp, cidade, bairro, participacao, temas[], autoriza_whatsapp`) — RLS habilitado,
+  só `insert` público (`anon`), sem `select`/`update`/`delete` públicos.
+- Função `public.get_leads_count_keyla()` (SQL, `security definer`, `grant execute` pro
+  `anon`) — mesmo padrão do Pablício: só expõe a **contagem**, nunca os dados dos leads.
+- As duas campanhas **não compartilham dados** entre si — é o mesmo servidor Postgres, mas
+  tabelas e políticas de RLS completamente separadas.
+
+Pra ver os leads da Keyla: painel do Supabase → projeto `pablicio-medeiros-leads` → Table
+Editor → `leads_keyla` (não confundir com a tabela `leads`, que é do Pablício).
+
+**Se no futuro quiserem um projeto Supabase 100% dedicado só da Keyla:** ou fazem upgrade
+de plano na organização, ou resolvem a hibernação travada do `d10-meta-ai` com o suporte do
+Supabase pra liberar a vaga gratuita, e então criam o projeto e migram a tabela
+`leads_keyla` pra lá.
+
+- `src/lib/supabase.ts` — client do Supabase, lê `VITE_SUPABASE_URL` e
+  `VITE_SUPABASE_ANON_KEY` do `.env` (não commitado) / `vercel.json` (commitado — é a chave
+  publicável, segura de expor).
+- `src/hooks/useLeadsCount.ts` + `src/components/SupportersCounter.tsx` — contador social
+  ("X pessoas já confirmaram presença"), usado no popup do formulário e na seção "Sua
+  parte" (`ParticiparCta.tsx`). Com 0 cadastros mostra "Seja um dos primeiros" em vez de
+  "0 pessoas".
 
 ## Stack
 
 - React + TypeScript + Vite
 - Tailwind CSS v4 (via `@tailwindcss/vite`, sem arquivo de config — usa arbitrary values)
 - lucide-react (ícones)
-- Sem Supabase (ver acima)
+- Supabase (`@supabase/supabase-js`) — ver "Backend de leads" acima
 
 ## Como rodar
 
@@ -107,6 +135,10 @@ função `get_leads_count()`).
 npm install
 npm run dev
 ```
+
+Precisa do arquivo `.env` com as credenciais do Supabase (mesmo projeto do Pablício —
+peça pra quem tem acesso, ou veja `vercel.json` que já tem os mesmos valores, já que é a
+chave publicável).
 
 ## Estrutura
 
@@ -175,14 +207,18 @@ componentes.
 ## Pendências / dados a confirmar
 
 - **Confirmar o CNPJ do rodapé** com a campanha (ver acima).
-- **Facebook**: `content.ts > contato.facebook` está como `"#"` (placeholder) — não foi
-  enviado nenhum link.
-- **Vídeo institucional mais longo**: o vídeo atual (`video-keyla.mp4`) tem 15s — dá pra
-  trocar por um mais longo em `content.ts > videoUrl` quando a campanha tiver um pronto.
-- **Domínio no Open Graph**: já apontado para `https://keylacristina.com.br` (domínio real
-  informado) — conferir se está no ar antes de divulgar o link.
+- **Vídeo institucional mais longo**: o vídeo atual (`video-keyla.mp4`) tem 15s — a
+  campanha vai enviar um definitivo depois; trocar em `content.ts > videoUrl` quando
+  chegar.
+- **Autorização de imagem** de terceiros identificáveis nas fotos da seção "Território"
+  (moradores/apoiadores) — confirmar com a campanha, mesmo padrão de cuidado do
+  `pablicio-medeiros`.
 
-## Próximos passos sugeridos
+## Já feito (não precisa repetir)
 
-- `/conectar-github` — subir o projeto pro GitHub
-- Deploy: Vercel ou Netlify (configurar o domínio `keylacristina.com.br`)
+- ✅ Deploy no Vercel com deploy automático a cada `git push` (ver seção "Deploy" no topo).
+- ✅ Domínio `keylacristina.com.br` apontado e validado (DNS na Hostinger).
+- ✅ Facebook, Instagram e demais links de contato preenchidos com os reais.
+- ✅ Backend de leads ativo (Supabase, tabela `leads_keyla` — ver seção acima).
+- ✅ SEO básico: `robots.txt`, `sitemap.xml`, `canonical`, `meta robots`, JSON-LD
+  (schema.org `Person`).
