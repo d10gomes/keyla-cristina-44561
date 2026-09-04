@@ -473,18 +473,18 @@ export const quemCards: QuemCard[] = [
     alt: "Keyla em família, celebrando o Natal",
   },
   {
-    tag: "Chapada",
-    titulo: "Iraquara é a sua raiz",
+    tag: "Escuta o povo",
+    titulo: "Quem é do povo, escuta o povo",
     texto:
-      "Uma mulher da Chapada que conhece de perto a realidade do interior baiano: suas festas, seu povo, suas dificuldades e sua força.",
-    alt: "Keyla em festa de São João na Chapada Diamantina",
+      "Rodas de conversa com mulheres da comunidade, ouvindo de perto o que a Chapada mais precisa antes de decidir qualquer coisa.",
+    alt: "Keyla em roda de conversa com mulheres da comunidade em Iraquara",
   },
   {
     tag: "Com as pessoas",
     titulo: "Sua relação com as pessoas",
     texto:
-      "Como vereadora, aprendeu que política se faz com presença, escuta e compromisso. Perto de quem precisa, ouvindo antes de decidir.",
-    alt: "Keyla ao lado de moradores em evento no interior da Bahia",
+      "Um abraço na rua, um encontro sem hora marcada. É assim que Keyla constrói sua relação com o povo da Chapada: de perto e com afeto.",
+    alt: "Keyla abraçando moradores durante visita a Iraquara",
   },
   {
     tag: "Trajetória",
