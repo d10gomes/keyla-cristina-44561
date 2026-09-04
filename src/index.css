@@ -114,23 +114,20 @@ h1, h2, h3, h4, .font-display {
   50% { opacity: 1; transform: translateY(-8px) scale(1); }
 }
 
-@keyframes introCoracaoDesenha {
-  to { stroke-dashoffset: 0; }
+@keyframes introLetra {
+  from { opacity: 0; transform: translateY(16px) scale(0.6) rotate(-6deg); }
+  to { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
 }
 
-@keyframes introCoracaoPreenche {
-  to { opacity: 0.16; }
+@keyframes introBrilhoVarre {
+  from { background-position: 150% 0; }
+  to { background-position: -50% 0; }
 }
 
-@keyframes introCoracaoPop {
-  0% { transform: scale(0.82); }
-  65% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
-@keyframes introLogoPop {
-  from { opacity: 0; transform: scale(0.8) translateY(10px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
+@keyframes introNumeroPop {
+  0% { opacity: 0; transform: scale(0.5); }
+  60% { opacity: 1; transform: scale(1.15); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {

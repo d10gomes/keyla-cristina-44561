@@ -1,10 +1,25 @@
 import { useEffect, useState } from "react";
 import { candidato } from "../data/content";
-import logoOficial from "../assets/logo-oficial.webp";
 
 const SESSION_KEY = "introExibida";
 const DURACAO_MS = 2500;
 const SAIDA_MS = 500;
+
+// Faíscas douradas espalhadas — o brilho dos diamantes da Chapada Diamantina.
+const FAISCAS = [
+  { top: "14%", left: "16%", delay: "0.1s", size: 7 },
+  { top: "22%", left: "84%", delay: "0.6s", size: 5 },
+  { top: "38%", left: "8%", delay: "1s", size: 6 },
+  { top: "34%", left: "92%", delay: "0.3s", size: 8 },
+  { top: "58%", left: "12%", delay: "0.8s", size: 5 },
+  { top: "62%", left: "88%", delay: "0.2s", size: 7 },
+  { top: "78%", left: "24%", delay: "1.1s", size: 6 },
+  { top: "80%", left: "74%", delay: "0.5s", size: 8 },
+  { top: "8%", left: "50%", delay: "0.9s", size: 5 },
+];
+
+const LETRA_DELAY_BASE = 0.35;
+const LETRA_DELAY_PASSO = 0.045;
 
 function deveExibir() {
   if (typeof window === "undefined") return false;
@@ -12,16 +27,26 @@ function deveExibir() {
   return sessionStorage.getItem(SESSION_KEY) !== "1";
 }
 
-// Pontinhos dourados espalhados ao redor do coração — remetem ao brilho dos
-// diamantes da Chapada Diamantina, um toque delicado sem virar poluição visual.
-const FAISCAS = [
-  { top: "20%", left: "20%", delay: "0.1s", size: 9 },
-  { top: "24%", left: "78%", delay: "0.5s", size: 6 },
-  { top: "62%", left: "14%", delay: "0.9s", size: 7 },
-  { top: "68%", left: "84%", delay: "0.3s", size: 10 },
-  { top: "10%", left: "52%", delay: "0.7s", size: 5 },
-  { top: "80%", left: "48%", delay: "1.1s", size: 8 },
-];
+function Palavra({ texto, offset }: { texto: string; offset: number }) {
+  return (
+    <span className="inline-flex whitespace-nowrap">
+      {texto.split("").map((letra, i) => (
+        <span
+          key={i}
+          className="inline-block text-brand-yellow-500"
+          style={{
+            textShadow: "0 0 16px rgba(242,183,5,0.55)",
+            animation: `introLetra 0.55s cubic-bezier(.2,.9,.3,1.2) ${
+              LETRA_DELAY_BASE + (offset + i) * LETRA_DELAY_PASSO
+            }s both`,
+          }}
+        >
+          {letra}
+        </span>
+      ))}
+    </span>
+  );
+}
 
 export default function IntroSplash() {
   const [visivel, setVisivel] = useState(deveExibir);
@@ -48,6 +73,15 @@ export default function IntroSplash() {
 
   if (!visivel) return null;
 
+  const palavras = candidato.nome.toUpperCase().split(" ");
+  const palavrasComOffset = palavras.reduce<{ texto: string; offset: number }[]>((acc, texto) => {
+    const anterior = acc[acc.length - 1];
+    const offset = anterior ? anterior.offset + anterior.texto.length : 0;
+    return [...acc, { texto, offset }];
+  }, []);
+  const totalLetras = palavras.join("").length;
+  const numeroDelay = LETRA_DELAY_BASE + totalLetras * LETRA_DELAY_PASSO + 0.15;
+
   return (
     <div
       className={`fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_50%_38%,#a3226e_0%,#7a1550_55%,#3f0c2a_100%)] transition-opacity duration-500 ${
@@ -55,10 +89,10 @@ export default function IntroSplash() {
       }`}
       aria-hidden="true"
     >
-      {/* brilho pulsante atrás do coração */}
+      {/* brilho pulsante de fundo */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <div
-          className="w-[65vmin] h-[65vmin] rounded-full bg-[radial-gradient(circle,rgba(242,183,5,0.22)_0%,transparent_70%)]"
+          className="w-[75vmin] h-[75vmin] rounded-full bg-[radial-gradient(circle,rgba(242,183,5,0.22)_0%,transparent_70%)]"
           style={{ animation: "introGlow 2.4s ease-in-out infinite" }}
         />
       </div>
@@ -75,53 +109,48 @@ export default function IntroSplash() {
             height: f.size,
             opacity: 0,
             boxShadow: "0 0 10px 2px rgba(242,183,5,0.55)",
-            animation: `introFaisca 1.8s ease-in-out ${f.delay} infinite`,
+            animation: `introFaisca 1.9s ease-in-out ${f.delay} infinite`,
           }}
         />
       ))}
 
-      <div className="relative flex flex-col items-center px-6 text-center">
-        {/* coração desenhado a mão, depois preenchido com um brilho suave */}
-        <svg
-          viewBox="0 0 100 90"
-          className="w-16 h-[3.6rem] sm:w-20 sm:h-[4.5rem] mb-3"
-          style={{ animation: "introCoracaoPop 0.5s ease-out 0.75s both" }}
+      <div className="relative flex flex-col items-center px-6 text-center max-w-xs sm:max-w-md">
+        <p
+          className="uppercase tracking-[0.25em] text-white/70 font-semibold text-[11px] sm:text-xs mb-3"
+          style={{ animation: "introTexto 0.5s ease-out 0s both" }}
         >
-          <path
-            d="M50 82 C10 55 2 30 18 15 C30 4 46 8 50 24 C54 8 70 4 82 15 C98 30 90 55 50 82 Z"
-            fill="#f2b705"
-            style={{ opacity: 0, animation: "introCoracaoPreenche 0.4s ease-out 0.6s forwards" }}
-          />
-          <path
-            d="M50 82 C10 55 2 30 18 15 C30 4 46 8 50 24 C54 8 70 4 82 15 C98 30 90 55 50 82 Z"
-            fill="none"
-            stroke="#f2b705"
-            strokeWidth="3.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            pathLength={1}
+          Candidata a {candidato.cargo}
+        </p>
+
+        <h1 className="relative font-display font-extrabold leading-[0.95] text-4xl sm:text-6xl flex flex-wrap justify-center gap-x-3 gap-y-1 overflow-hidden px-1">
+          {palavrasComOffset.map(({ texto, offset }) => (
+            <Palavra key={texto} texto={texto} offset={offset} />
+          ))}
+          {/* brilho que varre o nome uma vez, depois que as letras terminam de aparecer */}
+          <span
+            className="pointer-events-none absolute inset-0 mix-blend-overlay"
             style={{
-              strokeDasharray: 1,
-              strokeDashoffset: 1,
-              animation: "introCoracaoDesenha 0.8s ease-out forwards",
+              background:
+                "linear-gradient(100deg, transparent 35%, rgba(255,255,255,0.9) 50%, transparent 65%)",
+              backgroundSize: "300% 100%",
+              backgroundPosition: "150% 0",
+              animation: `introBrilhoVarre 0.9s ease-in-out ${numeroDelay - 0.15}s 1`,
             }}
           />
-        </svg>
+        </h1>
 
         <div
-          className="rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden"
-          style={{ animation: "introLogoPop 0.6s cubic-bezier(.34,1.56,.64,1) 0.95s both" }}
+          className="mt-4 inline-flex items-center gap-2.5 text-brand-yellow-500 font-display font-extrabold text-2xl sm:text-3xl tracking-wide"
+          style={{ animation: `introNumeroPop 0.5s cubic-bezier(.34,1.56,.64,1) ${numeroDelay}s both` }}
         >
-          <img
-            src={logoOficial}
-            alt={`${candidato.nome} — ${candidato.cargo}`}
-            className="w-48 sm:w-64 md:w-72 h-auto"
-          />
+          <span className="text-base sm:text-lg opacity-80">✦</span>
+          {candidato.numero}
+          <span className="text-base sm:text-lg opacity-80">✦</span>
         </div>
 
         <p
-          className="mt-4 font-display italic text-white/90 text-sm sm:text-base tracking-wide"
-          style={{ animation: "introTexto 0.5s ease-out 1.55s both" }}
+          className="mt-4 font-display italic text-white/85 text-sm sm:text-base tracking-wide"
+          style={{ animation: `introTexto 0.5s ease-out ${numeroDelay + 0.45}s both` }}
         >
           {candidato.slogan}
         </p>
