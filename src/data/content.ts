@@ -1,4 +1,4 @@
-// Conteúdo central da página — edite aqui sem mexer nos componentes.
+// Conteúdo central da página. Edite aqui sem mexer nos componentes.
 
 export const candidato = {
   nome: "Keyla Cristina",
@@ -66,7 +66,7 @@ export const valores = [
     icone: "dove",
     titulo: "Fé cristã",
     texto:
-      "Uma trajetória que começou na igreja — catequista, sempre presente nos grupos de jovens. Fé que se transforma em serviço ao próximo.",
+      "Uma trajetória que começou na igreja, como catequista e sempre presente nos grupos de jovens. Fé que se transforma em serviço ao próximo.",
   },
   {
     icone: "handshake",
@@ -78,7 +78,7 @@ export const valores = [
     icone: "family",
     titulo: "Família",
     texto:
-      "Como primeira-dama de Iraquara e mãe, entende a família como a base de tudo — e trabalha para protegê-la.",
+      "Como primeira-dama de Iraquara e mãe, entende a família como a base de tudo e trabalha todos os dias para protegê-la.",
   },
   {
     icone: "sprout",
@@ -117,7 +117,7 @@ export const trajetoria: Marco[] = [
     ano: "Sala de aula",
     titulo: "Professora",
     texto:
-      "Antes da política, a rotina de formar gente — de perto, todos os dias.",
+      "Antes da política, já vivia a rotina de formar gente de perto, todos os dias.",
   },
   {
     ano: "Vereadora",
@@ -147,7 +147,7 @@ export const trajetoria: Marco[] = [
     ano: "Ação social",
     titulo: "Nossa Sopa e o PAA Alimento nas comunidades",
     texto:
-      "Trouxe o programa Nossa Sopa e levou o PAA Alimento às comunidades através de cozinhas industriais — gerando renda para famílias e alimento para quem mais precisava.",
+      "Trouxe o programa Nossa Sopa e levou o PAA Alimento às comunidades através de cozinhas industriais, gerando renda para famílias e alimento para quem mais precisava.",
   },
   {
     ano: "Caravana da Cidadania",
@@ -157,9 +157,9 @@ export const trajetoria: Marco[] = [
   },
   {
     ano: "Agora",
-    titulo: "Candidata a Deputada Estadual — 44561",
+    titulo: "Candidata a Deputada Estadual, número 44561",
     texto:
-      "Quer levar esse mesmo jeito de cuidar — de perto, na prática — para a Assembleia Legislativa da Bahia.",
+      "Quer levar esse mesmo jeito de cuidar, de perto e na prática, para a Assembleia Legislativa da Bahia.",
   },
 ];
 
@@ -174,7 +174,7 @@ export const causas: Causa[] = [
     icone: "heart-handshake",
     titulo: "Educar é Proteger",
     texto:
-      "Projeto criado com a Fundação Itaú que acolhe crianças carentes no contraturno escolar — cursos, dança, música, balé e alimentação, para que a escola não seja o único lugar seguro do dia.",
+      "Projeto criado com a Fundação Itaú que acolhe crianças carentes no contraturno escolar, com cursos, dança, música, balé e alimentação, para que a escola não seja o único lugar seguro do dia.",
   },
   {
     icone: "soup",
@@ -186,13 +186,13 @@ export const causas: Causa[] = [
     icone: "wheat",
     titulo: "PAA Alimento nas comunidades",
     texto:
-      "Cozinhas industriais que geram renda para famílias produtoras e, ao mesmo tempo, levam alimento a quem mais precisa — dos dois lados, uma comunidade mais forte.",
+      "Cozinhas industriais que geram renda para famílias produtoras e, ao mesmo tempo, levam alimento a quem mais precisa. Dos dois lados, uma comunidade mais forte.",
   },
   {
     icone: "car-front",
     titulo: "Caravana da Cidadania",
     texto:
-      "Psicóloga, enfermeira, retirada de documentos e cadastro do Bolsa Família levados diretamente às comunidades — serviço público de porta em porta.",
+      "Psicóloga, enfermeira, retirada de documentos e cadastro do Bolsa Família levados diretamente às comunidades. Serviço público de porta em porta.",
   },
 ];
 
@@ -403,7 +403,7 @@ export const eixos: Eixo[] = [
   },
 ];
 
-// Grid rápido "O que a Keyla quer cuidar" — resumo visual dos mesmos 7 eixos
+// Grid rápido "O que a Keyla quer cuidar": resumo visual dos mesmos 7 eixos
 // acima, usado como abertura da seção de propostas.
 export const prioridades = [
   { icone: "heart-pulse", titulo: "Saúde", texto: "Mais transparência e atendimento mais perto." },
@@ -419,31 +419,31 @@ export const bio = {
   fraseAbertura:
     "Você conhece uma mulher que nunca deixou de servir a própria terra?",
   aberturaTexto:
-    "Keyla conhece — porque é ela mesma. Mãe, esposa e mulher de fé, desde menina em Iraquara, na Chapada Diamantina, sua vida sempre esteve ligada à igreja, à sala de aula e ao trabalho social. Antes de qualquer cargo, já era assim: perto das pessoas, resolvendo o que dava para resolver.",
+    "Keyla conhece, porque é ela mesma. Mãe, esposa e mulher de fé, desde menina em Iraquara, na Chapada Diamantina, sua vida sempre esteve ligada à igreja, à sala de aula e ao trabalho social. Antes de qualquer cargo, já era assim: perto das pessoas, resolvendo o que dava para resolver.",
   memoriaTitulo: "Uma menina da igreja de Iraquara que nunca deixou de servir.",
   memoriaTexto:
-    "Antes da política, Keyla já estava lá: nos grupos de jovens, na catequese, nas salas de aula como professora. Cresceu vendo a fé e o serviço como a mesma coisa — e foi assim, servindo de perto, que aprendeu o que a sua gente mais precisa.",
+    "Antes da política, Keyla já estava lá: nos grupos de jovens, na catequese, nas salas de aula como professora. Cresceu vendo a fé e o serviço como a mesma coisa, e foi assim, servindo de perto, que aprendeu o que a sua gente mais precisa.",
   memoriaDestaque: "Porque amor por uma terra se mostra em quem nunca foi embora.",
   quemE: [
-    "Mãe, esposa e mulher de fé, formada em Assistência Social — para Keyla, cuidar das pessoas sempre foi mais que uma profissão, foi propósito.",
-    "Nasceu e cresceu em Iraquara, na Chapada Diamantina — e foi lá que construiu sua história antes mesmo de pensar em política.",
+    "Mãe, esposa e mulher de fé, formada em Assistência Social. Para Keyla, cuidar das pessoas sempre foi mais que uma profissão: foi propósito.",
+    "Nasceu e cresceu em Iraquara, na Chapada Diamantina, e foi lá que construiu sua história antes mesmo de pensar em política.",
     "Desde cedo esteve envolvida na igreja: catequista, integrante de grupos de jovens, sempre próxima da comunidade.",
-    "Formou-se professora, empreendeu e esteve à frente de um centro médico em Iraquara — sempre gerando oportunidade para quem estava por perto.",
-    "Foi eleita vereadora sendo, à época, a mais jovem vereadora da Bahia — aprendeu que política se faz com presença, escuta e compromisso.",
+    "Formou-se professora, empreendeu e esteve à frente de um centro médico em Iraquara, sempre gerando oportunidade para quem estava por perto.",
+    "Foi eleita vereadora sendo, à época, a mais jovem vereadora da Bahia. Foi ali que aprendeu que política se faz com presença, escuta e compromisso.",
     "Como presidente da Câmara de Iraquara, conduziu a gestão que tornou a Casa Legislativa independente.",
     "Foi secretária de Ação Social, levando projetos de empreendedorismo feminino e apoio a famílias carentes.",
     "Como primeira-dama de Iraquara, criou ao lado da Fundação Itaú o projeto Educar é Proteger, acolhendo crianças carentes no contraturno escolar com cursos, dança, música, balé e alimentação.",
-    "Trouxe o programa Nossa Sopa e levou o PAA Alimento às comunidades através de cozinhas industriais — gerando renda para famílias e levando comida a quem mais precisava.",
+    "Trouxe o programa Nossa Sopa e levou o PAA Alimento às comunidades através de cozinhas industriais, gerando renda para famílias e levando comida a quem mais precisava.",
     "Criou a Caravana da Cidadania, levando psicóloga, enfermeira, emissão de documentos e cadastro do Bolsa Família direto às comunidades.",
-    "Agora, como candidata a Deputada Estadual, quer levar esse mesmo cuidado — o coração da Chapada — para cuidar de toda a Bahia.",
+    "Agora, como candidata a Deputada Estadual, quer levar esse mesmo cuidado, o coração da Chapada, para cuidar de toda a Bahia.",
   ],
   citacao: "Um coração da Chapada, pra cuidar da Bahia.",
   autenticidadeTitulo: "Ela já faz, antes de prometer.",
   autenticidadeTexto:
-    "Professora, vereadora, presidente da Câmara, secretária de Ação Social e primeira-dama — Keyla já esteve em quase todos os lugares onde se pode servir Iraquara. Criou programas que existem até hoje, como o Educar é Proteger, o Nossa Sopa e a Caravana da Cidadania. Agora quer levar esse mesmo jeito de cuidar — de perto, na prática — para a Assembleia Legislativa da Bahia.",
+    "Professora, vereadora, presidente da Câmara, secretária de Ação Social e primeira-dama. Keyla já esteve em quase todos os lugares onde se pode servir Iraquara. Criou programas que existem até hoje, como o Educar é Proteger, o Nossa Sopa e a Caravana da Cidadania. Agora quer levar esse mesmo jeito de cuidar, de perto e na prática, para a Assembleia Legislativa da Bahia.",
 };
 
-// Cards da seção "Quem é Keyla" — cada card tem uma foto real da campanha
+// Cards da seção "Quem é Keyla". Cada card tem uma foto real da campanha
 // (importada diretamente no componente QuemEKeyla.tsx).
 export type QuemCard = {
   tag: string;
@@ -457,14 +457,14 @@ export const quemCards: QuemCard[] = [
     tag: "Apresentação",
     titulo: "Essa sou eu, Keyla",
     texto:
-      "Mãe, esposa e mulher de fé. Formada em Assistência Social, empreendedora e geradora de oportunidades — cuidar das pessoas sempre foi mais que uma profissão, sempre foi propósito.",
+      "Mãe, esposa e mulher de fé. Formada em Assistência Social, empreendedora e geradora de oportunidades: cuidar das pessoas sempre foi mais que uma profissão, sempre foi propósito.",
     alt: "Keyla em família, celebrando o Natal",
   },
   {
     tag: "Chapada",
     titulo: "Iraquara é a sua raiz",
     texto:
-      "Uma mulher da Chapada que conhece de perto a realidade do interior baiano — suas festas, seu povo, suas dificuldades e sua força.",
+      "Uma mulher da Chapada que conhece de perto a realidade do interior baiano: suas festas, seu povo, suas dificuldades e sua força.",
     alt: "Keyla em festa de São João na Chapada Diamantina",
   },
   {
@@ -478,14 +478,14 @@ export const quemCards: QuemCard[] = [
     tag: "Trajetória",
     titulo: "Experiência na vida pública",
     texto:
-      "Passou pela vereança e pela frente de um centro médico em Iraquara — experiência de quem já trabalhou, empreendeu e serviu no interior da Bahia.",
+      "Passou pela vereança e pela frente de um centro médico em Iraquara, experiência de quem já trabalhou, empreendeu e serviu no interior da Bahia.",
     alt: "Keyla em encontro com a comunidade",
   },
   {
     tag: "Visão de futuro",
     titulo: "Por que decidiu entrar para a política",
     texto:
-      "Para levar a experiência de quem empreende, cuida e conhece o interior até a Assembleia Legislativa da Bahia — cuidando de quem sempre cuidou dos outros.",
+      "Para levar a experiência de quem empreende, cuida e conhece o interior até a Assembleia Legislativa da Bahia, cuidando de quem sempre cuidou dos outros.",
     alt: "Keyla em campanha no interior da Bahia",
   },
   {
@@ -497,7 +497,7 @@ export const quemCards: QuemCard[] = [
   },
 ];
 
-// Galeria "Território" — presença nas comunidades da Chapada e do interior.
+// Galeria "Território": presença nas comunidades da Chapada e do interior.
 export type TerritorioItem = {
   legenda: string;
   alt: string;
@@ -525,6 +525,6 @@ export const territorioFrases = [
 
 export const rodapeLegal = {
   nomeCivil: candidato.nomeCompleto,
-  disclaimer: `Propaganda eleitoral. ${candidato.nomeCompleto.toUpperCase()} ${candidato.numero} — Candidata a ${candidato.cargo} — ${candidato.partido} (${candidato.partidoSigla}).`,
+  disclaimer: `Propaganda eleitoral. ${candidato.nomeCompleto.toUpperCase()} ${candidato.numero}, candidata a ${candidato.cargo}, ${candidato.partido} (${candidato.partidoSigla}).`,
   responsavel: `Responsável pela contratação: CNPJ ${contato.cnpjResponsavel}.`,
 };

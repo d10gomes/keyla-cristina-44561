@@ -58,7 +58,7 @@ export default function VideoVsl() {
                 <Play size={26} className="ml-1" fill="currentColor" />
               </div>
               <p className="text-xs sm:text-sm px-6 text-center">
-                Vídeo em breve — adicione o link em{" "}
+                Vídeo em breve. Adicione o link em{" "}
                 <code className="text-[#f2b705]">src/data/content.ts</code>
               </p>
             </div>

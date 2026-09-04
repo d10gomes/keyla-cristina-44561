@@ -119,7 +119,7 @@ export default function LeadForm({ onDone }: { onDone?: () => void }) {
             Ajude a mudar a realidade da nossa região.
           </p>
           <p className="text-sm text-[#2b1420]/70 mb-4">
-            Manda esse link pra pelo menos 3 amigos — quanto mais gente sabendo, mais forte
+            Manda esse link pra pelo menos 3 amigos. Quanto mais gente sabendo, mais forte
             fica esse movimento.
           </p>
           <button
