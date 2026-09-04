@@ -122,7 +122,9 @@ export default function IntroSplash() {
           Candidata a {candidato.cargo}
         </p>
 
-        <h1 className="relative font-display font-extrabold leading-[0.95] text-4xl sm:text-6xl flex flex-wrap justify-center gap-x-3 gap-y-1 overflow-hidden px-1">
+        {/* div, não h1: a página já tem seu h1 de verdade no Hero — isso aqui é
+            só uma tela decorativa temporária, não pode duplicar o heading principal */}
+        <div className="relative font-display font-extrabold leading-[0.95] text-4xl sm:text-6xl flex flex-wrap justify-center gap-x-3 gap-y-1 overflow-hidden px-1">
           {palavrasComOffset.map(({ texto, offset }) => (
             <Palavra key={texto} texto={texto} offset={offset} />
           ))}
@@ -137,7 +139,7 @@ export default function IntroSplash() {
               animation: `introBrilhoVarre 0.9s ease-in-out ${numeroDelay - 0.15}s 1`,
             }}
           />
-        </h1>
+        </div>
 
         <div
           className="mt-4 inline-flex items-center gap-2.5 text-brand-yellow-500 font-display font-extrabold text-2xl sm:text-3xl tracking-wide"

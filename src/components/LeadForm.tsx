@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from "react";
 import { CheckCircle2, ShieldCheck, Share2 } from "lucide-react";
 import { candidato, cidadesRegiao, contato } from "../data/content";
+import { supabase } from "../lib/supabase";
+import SupportersCounter from "./SupportersCounter";
 import fotoKeyla from "../assets/keyla-hero-photo.webp";
 
 const PARTICIPACAO = [
@@ -48,7 +50,9 @@ export default function LeadForm({ onDone }: { onDone?: () => void }) {
   const [participacao, setParticipacao] = useState(PARTICIPACAO[0]);
   const [temas, setTemas] = useState<string[]>([]);
   const [autoriza, setAutoriza] = useState(false);
+  const [enviando, setEnviando] = useState(false);
   const [enviado, setEnviado] = useState(false);
+  const [erro, setErro] = useState<string | null>(null);
 
   function toggleTema(tema: string) {
     setTemas((prev) =>
@@ -56,9 +60,28 @@ export default function LeadForm({ onDone }: { onDone?: () => void }) {
     );
   }
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!autoriza) return;
+    if (!autoriza || enviando) return;
+    setErro(null);
+    setEnviando(true);
+
+    const { error } = await supabase.from("leads_keyla").insert({
+      nome,
+      whatsapp,
+      cidade,
+      bairro: bairro || null,
+      participacao,
+      temas,
+      autoriza_whatsapp: autoriza,
+    });
+
+    setEnviando(false);
+
+    if (error) {
+      setErro("Não deu pra salvar agora. Tenta de novo em instantes.");
+      return;
+    }
 
     const linhas = [
       `Quero fazer parte da campanha!`,
@@ -138,10 +161,14 @@ export default function LeadForm({ onDone }: { onDone?: () => void }) {
       <h2 className="font-display font-extrabold text-xl sm:text-2xl md:text-3xl text-center mb-2.5 sm:mb-3 leading-tight">
         Some com a gente.
       </h2>
-      <p className="text-center text-[#2b1420]/70 mb-6 sm:mb-8 text-sm md:text-base">
+      <p className="text-center text-[#2b1420]/70 mb-4 text-sm md:text-base">
         Você vai saber o que está acontecendo na sua cidade, em primeira mão. E sai da lista
         quando quiser. Leva menos de um minuto.
       </p>
+
+      <div className="flex justify-center mb-6 sm:mb-8">
+        <SupportersCounter variant="light" />
+      </div>
 
       <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
         <div>
@@ -272,6 +299,8 @@ export default function LeadForm({ onDone }: { onDone?: () => void }) {
           .
         </p>
 
+        {erro && <p className="text-sm text-red-600">{erro}</p>}
+
         <div className="flex items-center justify-center gap-1.5 text-xs font-semibold text-[#5c7a2e]">
           <ShieldCheck size={14} />
           Seus dados estão protegidos
@@ -279,9 +308,10 @@ export default function LeadForm({ onDone }: { onDone?: () => void }) {
 
         <button
           type="submit"
-          className="w-full bg-[#f2b705] text-[#7a1550] font-display font-bold py-3 rounded-full hover:brightness-95 transition"
+          disabled={enviando}
+          className="w-full bg-[#f2b705] text-[#7a1550] font-display font-bold py-3 rounded-full hover:brightness-95 transition disabled:opacity-60"
         >
-          Quero fazer parte
+          {enviando ? "Enviando..." : "Quero fazer parte"}
         </button>
       </form>
     </div>
