@@ -23,6 +23,7 @@ import RetentionPopupTrigger from "./components/RetentionPopupTrigger";
 import IntroSplash from "./components/IntroSplash";
 import AccessibilityBar from "./components/AccessibilityBar";
 import WhatsAppFloating from "./components/WhatsAppFloating";
+import BackgroundMusic from "./components/BackgroundMusic";
 import { LeadModalProvider, useLeadModal } from "./context/LeadModalContext";
 
 function LeadModal() {
@@ -89,6 +90,7 @@ function App() {
         <CookieBanner />
         <StickyMobileCta />
         <WhatsAppFloating />
+        <BackgroundMusic />
         <LeadModal />
         <RetentionPopupTrigger />
       </div>

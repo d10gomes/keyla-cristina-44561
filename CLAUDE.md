@@ -213,6 +213,14 @@ componentes.
 - **Autorização de imagem** de terceiros identificáveis nas fotos da seção "Território"
   (moradores/apoiadores) — confirmar com a campanha, mesmo padrão de cuidado do
   `pablicio-medeiros`.
+- **Arquivo de música de fundo**: `src/components/BackgroundMusic.tsx` já está pronto e
+  ligado no `App.tsx`, mas falta o arquivo em si — colocar em `public/musica-fundo.mp3`
+  (nome exato, ou ajustar `AUDIO_SRC` no componente). Detalhes de como funciona (bloqueio
+  de autoplay dos navegadores, pausa automática quando o `<video>` da página toca, botão
+  de mudo obrigatório por acessibilidade) estão comentados no topo do arquivo. **Cuidado
+  com direitos autorais**: só usar uma faixa que a campanha tenha licença pra usar
+  (composição própria, música royalty-free ou trilha licenciada) — isso é responsabilidade
+  de quem fornece o arquivo, não foi verificado aqui.
 
 ## Já feito (não precisa repetir)
 
